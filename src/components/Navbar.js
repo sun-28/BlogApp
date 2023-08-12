@@ -1,5 +1,6 @@
 import React from 'react'
 import Logout from './Logout'
+import Profile from './Profile'
 
 export default function Navbar() {
   return (
@@ -8,7 +9,7 @@ export default function Navbar() {
             brand
         </div>
         <div className="profileOptions">
-            profile
+            <Profile/>
             <Logout/>
         </div>
     </nav>

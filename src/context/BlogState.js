@@ -1,12 +1,12 @@
 import { useState } from "react";
 import BlogContext from "./BlogContext";
-
-
 import React from 'react'
-import { BlogRoute, BlogsRoute, GetUser } from "../utils/ApiRoutes";
+import { BlogRoute, BlogsByIdRoute, BlogsRoute, GetUser } from "../utils/ApiRoutes";
+
 
 export default function NoteState({ children }) {
   const [currUser, setcurrUser] = useState(null)
+  const [userBlogs, setUserBlogs] = useState()
   const [blogs, setblogs] = useState([])
   const [blogInfo, setblogInfo] = useState()
   const getUser = async () => {
@@ -26,6 +26,18 @@ export default function NoteState({ children }) {
     setblogs(json.blogs);
   }
 
+  const getBlogsById = async () =>{
+    const response = await fetch(BlogsByIdRoute,{
+      method: 'get',
+      headers: {
+        'Content-Type': 'application/json',
+        'auth-token': localStorage.getItem('token')
+      }
+    })
+    const json = await response.json();
+    setUserBlogs(json.Blog); 
+
+  }
   
   const getBlog = async (id) => {
     const response = await fetch(`${BlogRoute}/${id}`);
@@ -39,7 +51,7 @@ export default function NoteState({ children }) {
   } 
 
   return (
-    <BlogContext.Provider value={{UpdateBlog,blogInfo,getBlog,blogs,getAllBlogs,currUser, setcurrUser, getUser }}>
+    <BlogContext.Provider value={{userBlogs,getBlogsById,UpdateBlog,blogInfo,getBlog,blogs,getAllBlogs,currUser, setcurrUser, getUser }}>
       {children}
     </BlogContext.Provider>
   )

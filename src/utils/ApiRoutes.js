@@ -6,5 +6,6 @@ export const setAvatarRoute = `${host}/api/auth/setavatar`;
 export const GetUser = `${host}/api/auth/getuser`;
 export const postBlog = `${host}/api/auth/post`;
 export const BlogsRoute = `${host}/api/auth/getblogs`;
+export const BlogsByIdRoute = `${host}/api/auth/blogs`;
 export const BlogRoute = `${host}/api/auth/blog`;
 export const UpdateBlogRoute = `${host}/api/auth/updateblog`;

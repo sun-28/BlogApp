@@ -1,3 +1,10 @@
+body{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow-x: hidden;
+}
 .form {
   background-color: #15172b;
   border: 3px solid #dc2f55;
@@ -240,6 +247,7 @@ nav{
   transform: translate(2px ,2px);
 }
 .postForm{
+  margin-top: 5vh;
   padding-top: 3rem;
   display: flex;
   flex-direction: column;
@@ -302,4 +310,181 @@ button svg path{
 }
 .ql-snow.ql-toolbar button:hover, .ql-snow .ql-toolbar button:hover, .ql-snow.ql-toolbar button:focus, .ql-snow .ql-toolbar button:focus, .ql-snow.ql-toolbar button.ql-active, .ql-snow .ql-toolbar button.ql-active, .ql-snow.ql-toolbar .ql-picker-label:hover, .ql-snow .ql-toolbar .ql-picker-label:hover, .ql-snow.ql-toolbar .ql-picker-label.ql-active, .ql-snow .ql-toolbar .ql-picker-label.ql-active, .ql-snow.ql-toolbar .ql-picker-item:hover, .ql-snow .ql-toolbar .ql-picker-item:hover, .ql-snow.ql-toolbar .ql-picker-item.ql-selected, .ql-snow .ql-toolbar .ql-picker-item.ql-selected {
   color: #dc2f55 !important;
+}
+.mainCon{
+  margin-top: 15vh;
+  width: 100vw;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.post{
+  display: flex;
+  width: 80vw;
+  align-items: center;
+  justify-content: space-evenly;
+  color: white;
+  gap: 2rem;
+  border: 2px solid #dc2f55;
+  border-radius: 30px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+}
+.post:hover{
+  border-color: white;
+  cursor: pointer;
+}
+.imgDiv{
+  width: 30vw;
+  height: 30vh;
+  border: 2px solid #dc2f55;
+  border-radius: 30px;
+}
+.postImg{
+  width: 100%;
+  height: 100%;
+  border-radius: 30px;
+}
+.contentDiv{
+  display: flex;
+  flex-direction: column;
+  width: 33vw;
+}
+.authTime{
+  margin-top: 0.5rem;
+  display: flex;
+  gap: 1rem;
+  color: #cf6f83;
+}
+nav{
+  margin-bottom: 10vh;
+  position:fixed;
+}
+.postTitle{
+  color: #dc2f55;
+}
+.Conn{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100vw;
+}
+.pro{
+  display: inline;
+  height: 40px;
+  margin-right: 10px;
+}
+.pro img{
+  padding: 0;
+  margin: 0;
+  width: 35px !important;
+  margin-right: 10px;
+  margin-top: -7px;
+}
+
+.btn-pro{
+  margin-top: 1px;
+  height: 6.5vh;
+  background-color: #131324;
+  border: none;
+}
+.btn-check:checked+.btn, .btn.active, .btn.show, .btn:first-child:active, :not(.btn-check)+.btn:active{
+  margin-top: 1px;
+  height: 6.5vh;
+  background-color: #131324;
+  border: none;
+}
+.btn-pro:hover{
+  height: 6.5vh;
+  background-color: #131324;
+  border: none;
+  transform: none;
+}
+.dropdown-menu{
+  border: 2px solid #dc2f55;
+  background-color: #131324 !important;
+}
+.dropdown-item{
+  color: #dc2f55;
+}
+.dropdown-item:hover{
+  background: #dc2f55;
+  color: #131324;
+}
+
+.ppost{
+  color: white;
+  margin-top: 15vh;
+  display: flex;
+  flex-direction: column;
+  width: 80vw;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #dc2f55;
+  border-radius: 30px;
+  padding: 2rem;
+}
+.ppostTitle{
+  color: #dc2f55;
+  font-size: 4rem;
+  margin-bottom: 2rem;
+}
+.ppostImg{
+  height: max(300px);
+  max-width: 70vw;
+  margin-bottom: 2rem;
+  border: 1px solid #dc2f55;
+  border-radius: 30px;
+}
+.ppostAuthor{
+  margin-right: 20px;
+}
+.authLike{
+  width: 76vw;
+ display: flex;
+ justify-content: space-between;
+ margin-bottom: 2rem;
+ color: #cf6f83;
+}
+.ppostcontent{
+  display: flex;
+  width: 70vw;
+  align-items: center;
+  justify-content: center;
+}
+.mainProfile{
+  margin-top: 7vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  color: white;
+}
+.profileImg {
+  max-width: 200px;
+  border-radius: 50%;
+  border: 4px solid #dc2f55;
+}
+.UserPosts{
+  margin-top: 3rem !important;
+  color: white;
+  margin-top: 3rem;
+  font-size: 2.5rem;
+}
+
+h2 span{
+  color: #dc2f55;
+}
+.aldi{
+  margin-top: 70px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 90vw;
+  border: 2px solid #dc2f55;
+  border-radius: 30px;
 }

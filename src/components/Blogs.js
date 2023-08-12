@@ -18,7 +18,7 @@ export default function Blogs() {
     }
   }, [])
   return (
-    <div>
+    <div className='Conn'>
       <Navbar/>
       <Posts/>
     </div>

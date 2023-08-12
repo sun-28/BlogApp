@@ -76,7 +76,7 @@ export default function UpdatePost(){
     }
   }
   return (
-    <>
+    <div className='Conn'>
     <Navbar/>
     <form className='postForm' onSubmit={handleSubmit}>
       <input className='inp' type="text" placeholder='Title' value={title} onChange={(e) => { settitle(e.target.value) }} />
@@ -86,6 +86,6 @@ export default function UpdatePost(){
       <button style={{ 'zIndex': "1" }} type="submit">Update</button>
     </form>
     <ToastContainer />
-  </>
+  </div>
   )
 }

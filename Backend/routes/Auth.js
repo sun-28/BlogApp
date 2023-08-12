@@ -211,9 +211,9 @@ router.put('/updateblog', uploadMiddleWare.single('file'), async (req, res) => {
 
 // get blog by user id
 
-router.get('/blogs/:UserId', async (req, res) => {
+router.get('/blogs', fetchUser , async (req, res) => {
     try {
-        const { UserId } = req.params;
+        const UserId  = req.user.id;
         const Blog = await Post.find({ author: UserId });
         res.json({ success: true, Blog });
     } catch (error) {

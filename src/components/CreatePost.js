@@ -59,7 +59,7 @@ export default function CreatePost(props) {
       }
     }
   }
-  return (<>
+  return (<div className='Conn'>
     <Navbar/>
     <form className='postForm' onSubmit={handleSubmit}>
       <input className='inp' type="text" placeholder='Title' value={title} onChange={(e) => { settitle(e.target.value) }} />
@@ -69,6 +69,6 @@ export default function CreatePost(props) {
       <button style={{ 'zIndex': "1" }} type="submit">Publish</button>
     </form>
     <ToastContainer />
-  </>
+  </div>
   )
 }

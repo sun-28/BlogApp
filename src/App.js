@@ -8,6 +8,8 @@ import CreatePost from './components/CreatePost';
 import Post from './components/Post';
 import UpdatePost from './components/UpdatePost';
 import SetAvatar from './components/SetAvatar';
+import UserPost from './components/UserPost';
+import YourProfile from './components/YourProfile';
 function App() {
   return (
     <BlogState>
@@ -18,6 +20,7 @@ function App() {
           <Route path='/signup' element={<SignUp/>}/>
           <Route path='/setAvatar' element={<SetAvatar/>}/>
           <Route path='/post' element={<CreatePost/>}/>
+          <Route path='/profile' element={<YourProfile/>}/>
           <Route path='/post/:id' element={<Post/>}/>
           <Route path='/updatepost/:id' element={<UpdatePost/>}/>
       </Routes>

@@ -1,21 +1,24 @@
 import React from 'react'
-import { useState } from 'react'
-import { useEffect } from 'react'
-import BlogContext from '../context/BlogContext';
+import blogContext from '../context/BlogContext'
+import { useEffect } from 'react';
 import { useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
-import format from 'date-fns/format';
-
-export default function Posts() {
+import Post from './Post';
+import { format } from 'date-fns';
+const UserPost = () => {
     const navigate = useNavigate();
-    const context = useContext(BlogContext)
-    const { getAllBlogs, blogs } = context;
+    const context = useContext(blogContext);
+    const { getBlogsById, userBlogs } = context;
     useEffect(() => {
-        getAllBlogs();
+        getBlogsById();
     }, [])
+
     return (
-        <div className='mainCon'>
-            {blogs.length !== 0 && blogs.map((blog, index) => {
+        <div className='post-con'>
+            {
+                userBlogs &&
+                <div style={{marginTop:"2rem"}} className='mainCon '>
+            {userBlogs.length !== 0 && userBlogs.map((blog, index) => {
                 return (
                     <div className='post' key={index} onClick={() => navigate(`/post/${blog._id}`)}>
                         <div className='imgDiv'>
@@ -23,7 +26,7 @@ export default function Posts() {
                         </div>
                         <div className='contentDiv' >
                             <h2 className='postTitle' >{blog.title}</h2>
-                            <div className='authTime' >
+                            <div style={{marginLeft:"-14px"}} className='authTime' >
                             <p className='postAuthor' >{blog.author.name}</p>
                             <p className='postTime' >{format(new Date(blog.updatedAt), 'MMM d, yyyy HH:mm')}</p>
                             </div>
@@ -34,5 +37,9 @@ export default function Posts() {
             })
             }
         </div>
+            }
+        </div>
     )
 }
+
+export default UserPost
