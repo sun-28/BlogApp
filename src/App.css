@@ -774,6 +774,16 @@ nav{
   nav{
     padding-left: 1rem;
   }
+  .btnns{
+    flex-wrap: wrap;
+  }
+  .btnns button{
+    width: 40vw;
+    margin-top: 10px;
+  }
+  .lBtn{
+    width: 42vw !important;
+  }
   .brand{
     font-size: 20px;
   }

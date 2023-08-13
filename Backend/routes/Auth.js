@@ -360,6 +360,26 @@ router.get('/getcomments/:id',async(req,res)=>{
     }
   })
 
+  // Delete post 
+
+  router.delete('/deleteblog/:id',fetchUser,async (req,res)=>{
+    try {
+        const id=req.params.id;
+        const info = await Post.findById(id);
+        const userID = JSON.stringify(req.user.id);
+        const authId = JSON.stringify(info.author);
+      if(authId===userID){
+        const blog = await Post.findByIdAndDelete(id);
+        res.json({success:true});
+      }
+      else{
+        res.json({success:false});
+      }
+    } catch (error) {
+      res.json({success:false,error:"Internal Server Error"})
+    }
+  })
+
   
 
 module.exports = router

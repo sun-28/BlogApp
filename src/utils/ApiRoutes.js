@@ -15,4 +15,6 @@ export const likeRoute = `${host}/api/auth/isliked`;
 export const likesRoute = `${host}/api/auth/likes`;
 export const commentRoute = `${host}/api/auth/comment`;
 export const getAllCommentRoute = `${host}/api/auth/getcomments`;
+export const DeleteRoute = `${host}/api/auth/deleteblog`;
+
 

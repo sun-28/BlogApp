@@ -1,18 +1,46 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useContext, useEffect, useRef, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import BlogContext from '../context/BlogContext';
-import { UpdateBlogRoute, commentRoute, getAllCommentRoute, likeRoute, likesRoute } from '../utils/ApiRoutes';
+import "react-toastify/dist/ReactToastify.css";
+import { DeleteRoute, UpdateBlogRoute, commentRoute, getAllCommentRoute, likeRoute, likesRoute } from '../utils/ApiRoutes';
 import Navbar from './Navbar';
 import format from 'date-fns/format';
 import Comments from './Comments';
+import { ToastContainer, toast } from 'react-toastify';
 export default function Post() {
   const { id } = useParams();
-
-
+  const ref = useRef(null)
+  const executeScroll = () => ref.current.scrollIntoView()   
   const [dolike, setdolike] = useState(false)
   const [likes, setlikes] = useState(0);
   const [comments, setcomments] = useState([])
   const [comment, setcomment] = useState("")
+  const toastoptions = {
+    position: "top-right",
+    autoClose: 5000,
+    pauseOnHover: true,
+    draggable: true,
+    theme: "dark",
+}
+  const handleDelete=async()=>{
+    const response = await fetch(`${DeleteRoute}/${id}`,{
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json',
+        'auth-token': localStorage.getItem('token')
+      },
+    }) 
+    const json=await response.json();
+    if(json.success){
+      setTimeout(() => {
+        toast.success("Post Deleted Successfully",toastoptions);
+      }, 2000);
+      navigate('/')
+    }
+    else{
+      toast.error("Could not delete Post",toastoptions);
+    }
+  }
   const getAllComments = async () => {
     const response = await fetch(`${getAllCommentRoute}/${id}`);
     const json = await response.json();
@@ -95,14 +123,17 @@ export default function Post() {
               {likes}
             </span>
           </button>
-          <button className='commentt'>comment</button>
+          <button onClick={() => executeScroll()} className='commentt'>comment</button>
           {blogInfo.Blog.author._id === currUser._id && <button className='editt' onClick={() => navigate(`/updatepost/${id}`)} >Edit Post</button>}
+          {blogInfo.Blog.author._id === currUser._id && <button className='editt' onClick={() => {handleDelete();}} >Delete Post</button>}
         </div>
       </div>
       <div className='ppostContent' dangerouslySetInnerHTML={{ __html: blogInfo.Blog.content }}>
       </div>
+      <div ref={ref}></div>
     <Comments comments={comments} comment={comment} setcomment={setcomment} commentOnPost={commentOnPost} />
     </div>}
+    <ToastContainer/>
   </div>
   )
 }
