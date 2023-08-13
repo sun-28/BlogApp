@@ -1,12 +1,12 @@
 import React, { useContext, useEffect, useRef, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import BlogContext from '../context/BlogContext';
-import "react-toastify/dist/ReactToastify.css";
 import { DeleteRoute, UpdateBlogRoute, commentRoute, getAllCommentRoute, likeRoute, likesRoute } from '../utils/ApiRoutes';
 import Navbar from './Navbar';
 import format from 'date-fns/format';
 import Comments from './Comments';
 import { ToastContainer, toast } from 'react-toastify';
+import "react-toastify/dist/ReactToastify.css";
 export default function Post() {
   const { id } = useParams();
   const ref = useRef(null)
@@ -33,9 +33,9 @@ export default function Post() {
     const json=await response.json();
     if(json.success){
       setTimeout(() => {
-        toast.success("Post Deleted Successfully",toastoptions);
-      }, 2000);
-      navigate('/')
+        navigate('/')
+      }, 1500);
+      toast.success("Post Deleted Successfully",toastoptions);
     }
     else{
       toast.error("Could not delete Post",toastoptions);
@@ -132,8 +132,8 @@ export default function Post() {
       </div>
       <div ref={ref}></div>
     <Comments comments={comments} comment={comment} setcomment={setcomment} commentOnPost={commentOnPost} />
-    </div>}
     <ToastContainer/>
+    </div>}
   </div>
   )
 }

@@ -13,11 +13,11 @@ export default function Posts() {
     }, [])
     return (
         <div className='mainCon'>
-            {blogs.length !== 0 && blogs.map((blog, index) => {
+            {blogs.length !== 0 ?blogs.map((blog, index) => {
                 return (
                     <PostOut key={index} blog={blog}/>
                 )
-            })
+            }):<><h1 style={{color:"white",textAlign:"center",marginTop:"30vh"}}>No Blogs Posted Yet</h1><h1 style={{color:"white",textAlign:"center"}}>Create Blogs to ShowCase Here</h1></>
             }
         </div>
     )

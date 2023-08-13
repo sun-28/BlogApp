@@ -18,7 +18,7 @@ const UserPost = () => {
             {
                 userBlogs &&
                 <div style={{marginTop:"2rem"}} className='mainCon '>
-            {userBlogs.length !== 0 && userBlogs.map((blog, index) => {
+            {userBlogs.length !== 0?userBlogs.map((blog, index) => {
                 return (
                     <div className='post' key={index} onClick={() => navigate(`/post/${blog._id}`)}>
                         <div className='imgDiv'>
@@ -34,7 +34,7 @@ const UserPost = () => {
                         </div>
                     </div>
                 )
-            })
+            }):<h3 style={{color:"white",marginTop:"-2rem"}}>None</h3>
             }
         </div>
             }

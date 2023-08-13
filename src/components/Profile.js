@@ -13,9 +13,9 @@ export default function Profile() {
             <button className="btn btn-secondary btn-lg dropdown-toggle btn-pro" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                 <div className='pro'>
                 <img src={currUser && `data:image/svg+xml;base64,${currUser.Avatar}`} alt="img" />
-                <span>
-                    {currUser && currUser.name}
-                 </span>
+                {currUser && <span>
+                {window.screen.width>450?currUser.name:currUser.name.substring(0,5)}
+                 </span>}
                 </div>
             </button >
             <ul className="dropdown-menu">

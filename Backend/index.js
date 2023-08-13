@@ -9,6 +9,7 @@ require('dotenv').config();
 app.use(cors());
 app.use(express.json());
 app.use('/api/auth',require('./routes/Auth'))
+app.use('/api',require('./routes/Blog'))
 app.use('/uploads',express.static(__dirname+'/uploads'))
 
 mongoose.connect(process.env.MONGO_URL,{

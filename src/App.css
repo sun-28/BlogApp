@@ -390,12 +390,13 @@ nav{
 .btn-pro span{
   align-self: center !important;
 }
+nav{
+  height: 3.3rem;
+}
 .btn-pro{
   display: flex;
-  /* position: absolute !important;
-  left: -6vw !important; */
-  margin-right: 20px;
-  height: 6.5vh;
+  margin-right: 20px; 
+  height: 2.8rem ;
   background-color: #131324;
   border: none;
   align-self: center !important;
@@ -404,12 +405,12 @@ nav{
 }
 .btn-check:checked+.btn, .btn.active, .btn.show, .btn:first-child:active, :not(.btn-check)+.btn:active{
   margin-top: 1px;
-  height: 6.5vh;
+  height: 2.8rem;
   background-color: #131324;
   border: none;
 }
 .btn-pro:hover{
-  height: 6.5vh;
+  height: 2.8rem;
   background-color: #131324;
   border: none;
   transform: none;
@@ -505,7 +506,9 @@ nav{
   margin-top: 3rem;
   font-size: 2.5rem;
 }
-
+.username,.email{
+  text-align: center;
+}
 h2 span{
   color: #dc2f55;
 }
@@ -730,6 +733,13 @@ nav{
   width: 80vw;
 }
 
+.postTitle,.ppostTitle{
+  width: 100%;
+  overflow-wrap: break-word;
+}
+.ppostTitle{
+  text-align: center;
+}
 .comSend button{
   background-color: #dc2f55;
   color: #15172b;

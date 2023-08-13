@@ -6,7 +6,7 @@ export default function Navbar() {
   return (
     <nav>
         <div className='brand'>
-            brand
+            Blogsy
         </div>
             <Profile/>
         <div className="profileOptions">
