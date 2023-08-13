@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useState } from 'react'
 import Navbar from './Navbar'
 import ReactQuill from 'react-quill'
@@ -27,6 +27,11 @@ export default function CreatePost(props) {
     ],
   };
   let navigate = useNavigate();
+  useEffect(() => {
+    if(!localStorage.getItem('token')){
+      navigate('/login')
+    }
+  }, [])
   const toastoptions = {
     position: "top-right",
     autoClose: 5000,

@@ -9,10 +9,13 @@ import PasswordModal from './PasswordModal';
 export default function YourProfile(){
     const context = useContext(BlogContext)
     const {getUser,currUser} = context;
+    const navigate = useNavigate();
     useEffect(() => {
+        if(!localStorage.getItem('token')){
+          navigate('/login')
+        }
         getUser();
     }, [])
-    const navigate = useNavigate();
   return (
     <div className='Conn'>
       <Navbar/>

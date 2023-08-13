@@ -16,6 +16,9 @@ export default function UpdatePost(){
     const [content, setcontent] = useState()
     const [file,setfile] = useState();
     useEffect(() => {
+      if(!localStorage.getItem('token')){
+        navigate('/login')
+      }
         getBlog(id);
     }, [])
 

@@ -98,6 +98,9 @@ export default function Post() {
       const context = useContext(BlogContext)
       const { getBlog, blogInfo, currUser, getUser } = context;
       useEffect(() => {
+        if(!localStorage.getItem('token')){
+          navigate('/login')
+        }
         getBlog(id);
         getUser();
         noOfLikes(id);
