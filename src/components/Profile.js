@@ -22,7 +22,6 @@ export default function Profile() {
                 <li><Link className="dropdown-item" to="/">Home</Link></li>
                 <li><Link className="dropdown-item" to="/profile">Your Profile</Link></li>
                 <li><Link className="dropdown-item" to="/post">Create Post</Link></li>
-                <li><Link className="dropdown-item" to="/">Your Posts</Link></li>
             </ul>
         </div >)
 }

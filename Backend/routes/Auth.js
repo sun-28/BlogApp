@@ -331,9 +331,10 @@ router.get('/likes/:id', fetchUser, async (req, res) => {
 // comment endpoint 
 
 
-router.post('/comment',fetchUser,async(req,res)=>{
+router.put('/comment/:id',fetchUser,async(req,res)=>{
     try{
-      const {id,comment}=req.body;
+      const id = req.params.id
+      const {comment}=req.body;
       const info = await Post.findById(id);
       let comms=info.comments;
       const user = await User.findById(req.user.id);
@@ -346,5 +347,19 @@ router.post('/comment',fetchUser,async(req,res)=>{
   })
 
 
+  // get all comments
+
+router.get('/getcomments/:id',async(req,res)=>{
+    try{
+      const id = req.params.id;
+      const info = await Post.findById(id);
+      let comms=info.comments;
+      res.json({success:true,comms});
+    } catch (error) {
+      res.json({success:false,error:"Internal Server Error"})
+    }
+  })
+
+  
 
 module.exports = router

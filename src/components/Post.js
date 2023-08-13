@@ -1,12 +1,40 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import BlogContext from '../context/BlogContext';
-import { UpdateBlogRoute, likeRoute, likesRoute } from '../utils/ApiRoutes';
+import { UpdateBlogRoute, commentRoute, getAllCommentRoute, likeRoute, likesRoute } from '../utils/ApiRoutes';
 import Navbar from './Navbar';
 import format from 'date-fns/format';
+import Comments from './Comments';
 export default function Post() {
+  const { id } = useParams();
+
+
   const [dolike, setdolike] = useState(false)
-    const [likes, setlikes] = useState(0)
+  const [likes, setlikes] = useState(0);
+  const [comments, setcomments] = useState([])
+  const [comment, setcomment] = useState("")
+  const getAllComments = async () => {
+    const response = await fetch(`${getAllCommentRoute}/${id}`);
+    const json = await response.json();
+    let arr = json.comms.reverse();
+    setcomments(arr);
+  }
+  const commentOnPost = async () => {
+    const response = await fetch(`${commentRoute}/${id}`,{
+      method: 'put',
+      headers: {
+        'Content-Type': 'application/json',
+        'auth-token': localStorage.getItem('token')
+      },
+      body: JSON.stringify({
+        comment:comment
+      })
+    });
+    const json = await response.json();
+    if(json.success){
+     getAllComments();     
+    }
+  }
     const like = async(id) => {
       const response  = await fetch(`${likeRoute}/${id}`,{
         method: 'put',
@@ -37,7 +65,6 @@ export default function Post() {
         }
       }
 
-      const { id } = useParams();
       // blogInfo && document.getElementsByClassName('ppostContent').inn = blogInfo.Blog.content ;
       const navigate = useNavigate();
       const context = useContext(BlogContext)
@@ -46,6 +73,7 @@ export default function Post() {
         getBlog(id);
         getUser();
         noOfLikes(id);
+        getAllComments();
       }, [])
   return (<div className='Conn'>
     <Navbar />
@@ -73,6 +101,7 @@ export default function Post() {
       </div>
       <div className='ppostContent' dangerouslySetInnerHTML={{ __html: blogInfo.Blog.content }}>
       </div>
+    <Comments comments={comments} comment={comment} setcomment={setcomment} commentOnPost={commentOnPost} />
     </div>}
   </div>
   )

@@ -8,8 +8,8 @@ export default function Navbar() {
         <div className='brand'>
             brand
         </div>
-        <div className="profileOptions">
             <Profile/>
+        <div className="profileOptions">
             <Logout/>
         </div>
     </nav>

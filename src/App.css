@@ -160,14 +160,13 @@ body{
 body{
   background-color: #15172b
 }
-
 nav{
   padding-left: 2rem;
   padding-right: 2rem;
   height: 3rem;
   width: 100vw;
   display: flex;
-  justify-content: space-between;
+  justify-content:space-between;
   align-items: center;
   background-color: #dc2f55;
 }
@@ -311,6 +310,9 @@ button svg path{
 .ql-snow.ql-toolbar button:hover, .ql-snow .ql-toolbar button:hover, .ql-snow.ql-toolbar button:focus, .ql-snow .ql-toolbar button:focus, .ql-snow.ql-toolbar button.ql-active, .ql-snow .ql-toolbar button.ql-active, .ql-snow.ql-toolbar .ql-picker-label:hover, .ql-snow .ql-toolbar .ql-picker-label:hover, .ql-snow.ql-toolbar .ql-picker-label.ql-active, .ql-snow .ql-toolbar .ql-picker-label.ql-active, .ql-snow.ql-toolbar .ql-picker-item:hover, .ql-snow .ql-toolbar .ql-picker-item:hover, .ql-snow.ql-toolbar .ql-picker-item.ql-selected, .ql-snow .ql-toolbar .ql-picker-item.ql-selected {
   color: #dc2f55 !important;
 }
+.brand{
+  justify-self: flex-start !important;
+}
 .mainCon{
   margin-top: 15vh;
   width: 100vw;
@@ -372,7 +374,7 @@ nav{
   width: 100vw;
 }
 .pro{
-  display: inline;
+  display: flex;
   height: 40px;
   margin-right: 10px;
 }
@@ -381,14 +383,24 @@ nav{
   margin: 0;
   width: 35px !important;
   margin-right: 10px;
-  margin-top: -7px;
 }
-
+.btn-pro img{
+  align-self: center !important;
+}
+.btn-pro span{
+  align-self: center !important;
+}
 .btn-pro{
-  margin-top: 1px;
+  display: flex;
+  /* position: absolute !important;
+  left: -6vw !important; */
+  margin-right: 20px;
   height: 6.5vh;
   background-color: #131324;
   border: none;
+  align-self: center !important;
+  align-items: center !important;
+  justify-content: center;
 }
 .btn-check:checked+.btn, .btn.active, .btn.show, .btn:first-child:active, :not(.btn-check)+.btn:active{
   margin-top: 1px;
@@ -425,6 +437,7 @@ nav{
   border: 2px solid #dc2f55;
   border-radius: 30px;
   padding: 2rem;
+  padding-bottom: auto;
 }
 .ppostTitle{
   color: #dc2f55;
@@ -629,4 +642,174 @@ nav{
   width: 20vw;
   text-transform: uppercase;
   font-weight: bold;
+}
+.container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 3rem;
+  height: 100vh;
+  width: 100vw;
+}
+.loader{
+  max-inline-size: 100%;
+}
+.titleCon h1{
+  color: white;
+  text-align: center;
+}
+.avatars{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+}
+.Avatar{
+  border: 0.4rem solid transparent;
+  padding: 0.4rem;
+  border-radius: 5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.3s ease-in-out;
+}
+.Avatar img{
+  height: 6rem;
+}
+.selected{
+  border: 0.4rem solid #dc2f55;
+}
+.sbt{
+  max-width: 300px;
+}
+.card-main{
+  margin-top: 50px;
+  position: absolute;
+  left: 10vw;
+  width: 80vw;
+}
+.card-body{
+  border: 2px solid #dc2f55;
+  margin: 0.5rem;
+  border-radius: 30px;
+  color:#dc2f55;
+  background-color: #15172b;
+}
+.card{
+  background-color: #15172b !important;
+  border: none;
+}
+.card.shadow-0{
+  border: none !important;
+  width: 100%;
+}
+.comInput{
+  background-color: #15172b;
+  border-radius: 30px;
+  border: 2px solid #cf6f83;
+  color: #dc2f55;
+  width: 60vw;
+  margin-bottom: 1rem;
+}
+.comInput::placeholder{
+  color: #dc2f55;
+}
+.comInput:focus{
+  box-shadow: none;
+  border: 2px solid #dc2f55;
+  color: #dc2f55;
+  background-color: #15172b;
+}
+.comSend{
+  margin-top: 1rem;
+  display: flex;
+  align-items: baseline;
+  justify-content: baseline;
+  width: 80vw;
+}
+
+.comSend button{
+  background-color: #dc2f55;
+  color: #15172b;
+  border: none;
+  border-radius: 10px;
+  width: 10vw;
+  height: 2rem;
+  margin-left: 2vw;
+  margin-top: 3px;
+}
+
+@media screen and (max-width:720px){
+  
+  .comSend{
+    margin-left: 0vw;
+  }
+  .comSend button{
+    width: 15vw;
+    }
+  .card-main{
+    left: 2vw;
+    width: 95vw;
+  }
+  .ppost{
+    width: 95vw;
+  }
+  .ppostTitle{
+    font-size: 35px;
+  }
+  .authLike{
+    flex-direction:column;
+    gap: 1rem;
+    width: 95vw;
+  }
+  .ppostAuth{
+    font-size: 18px;
+  }
+  .post{
+    flex-direction: column;
+    width: 80vw;
+  }
+  nav{
+    padding-left: 1rem;
+  }
+  .brand{
+    font-size: 20px;
+  }
+  .imgDiv{
+    width: 100%;
+    height: auto;
+  }
+  .contentDiv{
+    width: 100%;
+  }
+  .authTime,.lBtn{
+    align-self: center !important;
+  }
+  .authTime{
+    width: 100%;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .postTitle,.postSummary{
+    text-align: center;
+  }
+  .card-main{
+    width: 100vw !important;
+  }
+}
+@media screen and (max-width:370px){
+  .comInput{
+    width: 50vw !important;
+  }
+  .comSend button{
+    width: 20vw;
+  }
+  .brand{
+    font-size: 17px;
+  }
+  nav{
+    padding-left: 1rem;
+  }
 }
