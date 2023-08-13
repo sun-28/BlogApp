@@ -4,7 +4,7 @@ import BlogContext from '../context/BlogContext';
 import { useContext } from 'react';
 import format from 'date-fns/format';
 import { useNavigate } from 'react-router-dom';
-import {likeRoute, likesRoute } from '../utils/ApiRoutes';
+import {host, likeRoute, likesRoute } from '../utils/ApiRoutes';
 const PostOut = ({blog}) => {
     const [dolike, setdolike] = useState(false)
     const [likes, setlikes] = useState(0)
@@ -45,7 +45,7 @@ const PostOut = ({blog}) => {
   return (
     <div className='post'>
             <div className='imgDiv' onClick={() => navigate(`/post/${blog._id}`)}>
-                < img className='postImg' src={`http://localhost:5000/${blog.cover}`} alt="IMAGE" />
+                < img className='postImg' src={`${host}/${blog.cover}`} alt="IMAGE" />
             </div>
             <div className='contentDiv'  >
                 <h2 className='postTitle' onClick={() => navigate(`/post/${blog._id}`)} >{blog.title}</h2>

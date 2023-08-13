@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useRef, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import BlogContext from '../context/BlogContext';
-import { DeleteRoute, UpdateBlogRoute, commentRoute, getAllCommentRoute, likeRoute, likesRoute } from '../utils/ApiRoutes';
+import { DeleteRoute, UpdateBlogRoute, commentRoute, getAllCommentRoute, host, likeRoute, likesRoute } from '../utils/ApiRoutes';
 import Navbar from './Navbar';
 import format from 'date-fns/format';
 import Comments from './Comments';
@@ -107,7 +107,7 @@ export default function Post() {
     <Navbar />
     {blogInfo && <div className='ppost'>
       <h2 className='ppostTitle'>{blogInfo.Blog.title}</h2>
-      <img height={100} className='ppostImg' src={`http://localhost:5000/${blogInfo.Blog.cover}`} alt="" />
+      <img height={100} className='ppostImg' src={`${host}/${blogInfo.Blog.cover}`} alt="" />
       <div className='authLike'>
         <div className='ppostAuth'>
           <span className='ppostAuthor'>{blogInfo.Blog.author.name}</span>
