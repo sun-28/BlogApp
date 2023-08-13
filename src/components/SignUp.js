@@ -50,7 +50,7 @@ export default function SignUp() {
             <div className="form" onSubmit={handlesubmit}>
                 <div className='logo-wel'>
                     <div style={{ display: "flex", justifyContent: "center", alignItems: "center", flexDirection: "column" }}>
-                        <div className="title">Welcome</div>
+                        <div className="title">Welcome To Blogsy</div>
                         <div className="subtitle">Let's create your account!</div>
                     </div>
                 </div>

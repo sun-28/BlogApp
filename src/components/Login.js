@@ -42,7 +42,7 @@ export default function Login() {
             <div className="lform form" onSubmit={handlesubmit}>
                 <div className='logo-wel'>
                     <div style={{ display: "flex", justifyContent: "center", alignItems: "center", flexDirection: "column" }}>
-                        <div className="title">Welcome</div>
+                        <div className="title">Welcome To Blogsy</div>
                         <div className="subtitle">Login To Continue</div>
                     </div>
                 </div>

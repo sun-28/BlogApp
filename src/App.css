@@ -137,11 +137,11 @@ body{
 }
 .form{
   height: auto;
-  width: min(500px,70vw);
+  width: min(500px,90vw);
 }
 .lform{
   height: auto;
-  width: min(500px,70vw);
+  width: min(500px,90vw);
 }
 .span {
   color: white;
