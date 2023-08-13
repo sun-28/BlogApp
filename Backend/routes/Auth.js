@@ -264,12 +264,18 @@ router.put('/changePass', fetchUser, async (req, res) => {
 
 router.put('/changeName', fetchUser, async (req, res) => {
     try {
-        const { newName } = req.body;
+        const { newName ,pass} = req.body;
         const id = req.user.id;
-        const fuser = await User.findByIdAndUpdate(id, {
-            name: newName
-        })
-        return res.json({ success: true });
+        const user = await User.findById(id);
+        if(await bcrypt.compare(pass,user.password)){
+            const fuser = await User.findByIdAndUpdate(id, {
+                name: newName
+            })
+            return res.json({success: true});
+        }
+        else{
+            return res.json({success: false,error:"Wrong Password"})
+        }
     }
     catch (error) {
         return res.json({ success: false, error: "Internal server Error" });
@@ -279,21 +285,42 @@ router.put('/changeName', fetchUser, async (req, res) => {
 
 // like endpoint 
 
-router.put('/like/:id', fetchUser, async (req, res) => {
+router.put('/isliked/:id', fetchUser, async (req, res) => {
     try {
         const { id } = req.params;
         const  userId  = req.user.id;
         const post = await Post.findById(id);
         const isLiked = post.likes.get(userId);
+        let like
         if (isLiked){
             post.likes.delete(userId);
+            like =false
         } else {
             post.likes.set(userId, true);
+            like = true
         }
         const updatedPost = await Post.findByIdAndUpdate(id,{ 
             likes: post.likes
         });
-        return res.json({success:true});
+        return res.json({success:true,like,likes:post.likes.size});
+    } catch (err) {
+        res.json({success:false,error:err});
+    }
+})
+
+// likes
+
+router.get('/likes/:id', fetchUser, async (req, res) => {
+    try {
+        const { id } = req.params;
+        const  userId  = req.user.id;
+        const post = await Post.findById(id);
+        const isLiked = post.likes.get(userId);
+        if(isLiked===undefined){
+            isLiked = false;
+        }
+        console.log(isLiked)
+        return res.json({success:true,isLiked,likes:post.likes.size});
     } catch (err) {
         res.json({success:false,error:err});
     }

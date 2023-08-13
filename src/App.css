@@ -322,7 +322,7 @@ button svg path{
 }
 .post{
   display: flex;
-  width: 80vw;
+  width: 70vw;
   align-items: center;
   justify-content: space-evenly;
   color: white;
@@ -337,8 +337,8 @@ button svg path{
   cursor: pointer;
 }
 .imgDiv{
-  width: 30vw;
-  height: 30vh;
+  width: 28vw;
+  height: 32vh;
   border: 2px solid #dc2f55;
   border-radius: 30px;
 }
@@ -435,7 +435,7 @@ nav{
   height: max(300px);
   max-width: 70vw;
   margin-bottom: 2rem;
-  border: 1px solid #dc2f55;
+  border: 2px solid #dc2f55;
   border-radius: 30px;
 }
 .ppostAuthor{
@@ -445,6 +445,7 @@ nav{
   width: 76vw;
  display: flex;
  justify-content: space-between;
+ align-items: center;
  margin-bottom: 2rem;
  color: #cf6f83;
 }
@@ -463,6 +464,23 @@ nav{
   gap: 1rem;
   color: white;
 }
+
+.mainProfile button,.commentt,.editt,.buttn{
+  background-color: #dc2f55;
+  border: none;
+  color: #131324;
+  padding: 0.5rem;
+  border-radius: 10px;
+  margin: 0px 0.5rem;
+  font-weight: bold;
+  border: 2px solid #dc2f55;
+}
+.mainProfile button:hover,.commentt:hover,.editt:hover,.buttn:hover{
+  color: #dc2f55;
+  background-color: #131324;
+  border: 2px solid #dc2f55;
+}
+
 .profileImg {
   max-width: 200px;
   border-radius: 50%;
@@ -487,4 +505,128 @@ h2 span{
   width: 90vw;
   border: 2px solid #dc2f55;
   border-radius: 30px;
+}
+.modal-content{
+  background-color: #15172b;
+  color: #dc2f55;
+}
+.btn-danger{
+  background-color: #dc2f55;
+}
+.lBtn {
+  width: 140px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  border: none;
+  border-radius: 5px;
+  overflow: hidden;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.089);
+  cursor: pointer;
+  background-color: transparent;
+}
+
+.lBtn:hover .leftContainer .like{
+  color: #dc2f55;
+  background-color: #131324;
+}
+.lBtn:active .leftContainer .like{
+  color: #131324;
+  background-color: #dc2f55;
+}
+.lBtn:hover .leftContainer svg{
+  fill: #dc2f55;
+}
+.lBtn:active .leftContainer svg{
+  fill: #131324;
+}
+
+
+.leftContainer {
+  width: 60%;
+  height: 100%;
+  background-color: #dc2f55;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+
+
+.leftContainer .like {
+  text-transform: uppercase;
+  color: #131324;
+  font-weight: 600;
+}
+.leftContainer:hover .like,.leftContainer:hover svg{
+  color: #dc2f55;
+  fill: #dc2f55;
+}
+.leftContainer:active .like,.leftContainer:active svg{
+  color: #131324;
+  fill: #131324;
+}
+
+.likeCount {
+  width: 40%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color:#dc2f55;
+  font-weight: 600;
+  position: relative;
+  border: 2px solid #dc2f55;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  background-color: #131324;
+  z-index: 1;
+}
+
+
+
+.likeCount::before {
+  height: 8px;
+  width: 8px;
+  position: absolute;
+  content: "";
+  background-color: #131324;
+  transform: rotate(45deg);
+  left: -4px;
+}
+
+.lBtn:hover .leftContainer{
+  background-color: #131324;
+  border: 2px solid #dc2f55;
+}
+
+.lBtn:active .leftContainer {
+  background-color: #dc2f55;
+}
+
+.lBtn:active .leftContainer svg {
+  transform: scale(1.15);
+  transform-origin: top;
+}
+.btnns{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+nav{
+  z-index: 100;
+}
+
+.purp:hover svg{
+  fill: purple !important;
+}
+
+.buttn{
+  margin-top: 1.2rem;
+  width: 20vw;
+  text-transform: uppercase;
+  font-weight: bold;
 }

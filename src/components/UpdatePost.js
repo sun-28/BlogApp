@@ -83,7 +83,7 @@ export default function UpdatePost(){
       <input className='inp' type="text" placeholder='Summary' value={summary} onChange={(e) => { setsummary(e.target.value) }} />
       <input className='fileinp' type="file" onChange={(e) => { setfile(e.target.files) }} />
       <ReactQuill value={content} modules={modules} onChange={(e) => { setcontent(e) }} />
-      <button style={{ 'zIndex': "1" }} type="submit">Update</button>
+      <button className='buttn' style={{ 'zIndex': "1" }} type="submit">Update</button>
     </form>
     <ToastContainer />
   </div>

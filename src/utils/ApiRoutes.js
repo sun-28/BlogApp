@@ -9,3 +9,8 @@ export const BlogsRoute = `${host}/api/auth/getblogs`;
 export const BlogsByIdRoute = `${host}/api/auth/blogs`;
 export const BlogRoute = `${host}/api/auth/blog`;
 export const UpdateBlogRoute = `${host}/api/auth/updateblog`;
+export const changeName = `${host}/api/auth/changeName`;
+export const changePass = `${host}/api/auth/changePass`;
+export const likeRoute = `${host}/api/auth/isliked`;
+export const likesRoute = `${host}/api/auth/likes`;
+

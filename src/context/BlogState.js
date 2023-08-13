@@ -1,7 +1,7 @@
 import { useState } from "react";
 import BlogContext from "./BlogContext";
 import React from 'react'
-import { BlogRoute, BlogsByIdRoute, BlogsRoute, GetUser } from "../utils/ApiRoutes";
+import { BlogRoute, BlogsByIdRoute, BlogsRoute, GetUser, changeName, changePass, isLiked } from "../utils/ApiRoutes";
 
 
 export default function NoteState({ children }) {
@@ -9,6 +9,54 @@ export default function NoteState({ children }) {
   const [userBlogs, setUserBlogs] = useState()
   const [blogs, setblogs] = useState([])
   const [blogInfo, setblogInfo] = useState()
+  const [username, setUsername] = useState()
+  const [npassword, setNpassword] = useState()
+  const [password, setPassword] = useState()
+  
+
+  const changeUsername = async () => {
+     const response  = await fetch(changeName,{
+      method: 'put',
+      headers: {
+        'Content-Type': 'application/json',
+        'auth-token': localStorage.getItem('token')
+      },
+      body: JSON.stringify({
+        'newName': username,
+        'pass': password
+      })
+     })
+     const json = await response.json();
+     if(json.success){
+        return true;
+     }
+     else{
+        return false;
+     }
+  }
+
+  const changePassword = async () => {
+     const response  = await fetch(changePass,{
+      method: 'put',
+      headers: {
+        'Content-Type': 'application/json',
+        'auth-token': localStorage.getItem('token')
+      },
+      body: JSON.stringify({
+        'oldPass': password,
+        'NewPass': npassword
+      })
+     })
+     const json = await response.json();
+     if(json.success){
+        return true;
+     }
+     else{
+        return false;
+     }
+  }
+
+
   const getUser = async () => {
     const response = await fetch(GetUser, {
       method: 'post',
@@ -51,7 +99,7 @@ export default function NoteState({ children }) {
   } 
 
   return (
-    <BlogContext.Provider value={{userBlogs,getBlogsById,UpdateBlog,blogInfo,getBlog,blogs,getAllBlogs,currUser, setcurrUser, getUser }}>
+    <BlogContext.Provider value={{npassword,setNpassword,changePassword,username,setUsername,password,setPassword,changeUsername,userBlogs,getBlogsById,UpdateBlog,blogInfo,getBlog,blogs,getAllBlogs,currUser, setcurrUser, getUser }}>
       {children}
     </BlogContext.Provider>
   )
