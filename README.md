@@ -11,6 +11,6 @@
 Done!
 
 ### Environmental Variables for backend
-PORT = 5000          
+PORT = 5000                   .         
 MONGO_URL= (a mongodb uri )    eg -  mongodb+srv://<USER GOES HERE>:<PASSWORD GOES HERE>@<NAME OF DATABASE>.hpryanm.mongodb.net/          
 JWT_SECRET = Ss@2809     (can change to anything)                        
