@@ -4,10 +4,10 @@
 ## Deployed Backend on https://blogsy-pvko.onrender.com
 
 ## deploying steps
-1 npm install
-2 npm start
-3 cd Backend  (Change the directory to Backend)
-4 node index.js
+1 npm install          
+2 npm start           
+3 cd Backend  (Change the directory to Backend)        
+4 node index.js        
 Done!
 
 ### Environmental Variables for backend
