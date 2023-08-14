@@ -153,9 +153,6 @@ router.get('/likes/:id', fetchUser, async (req, res) => {
         const userId = req.user.id;
         const post = await Post.findById(id);
         const isLiked = post.likes.get(userId);
-        if (isLiked === undefined) {
-            isLiked = false;
-        }
         return res.json({ success: true, isLiked, likes: post.likes.size });
     } catch (err) {
         res.json({ success: false, error: err });

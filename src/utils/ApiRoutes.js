@@ -1,4 +1,4 @@
-export const host = 'https://blogsy-pvko.onrender.com';
+export const host = 'https://blogsy-backend.vercel.app';
 export const SignUpRoute = `${host}/api/auth/signup`;
 export const LoginRoute = `${host}/api/auth/login`;
 export const LogoutRoute = `${host}/api/auth/logout`;

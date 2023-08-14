@@ -57,7 +57,7 @@ export default function SetAvatar() {
     }
     useEffect(() => {
         if(!localStorage.getItem('token')){
-            navigate('/signin');
+            navigate('/login');
         }
         getAva()
     }, [])

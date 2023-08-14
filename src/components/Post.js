@@ -79,7 +79,7 @@ export default function Post() {
       }
     }
 
-    const noOfLikes=async(id)=>{
+    const noOfLikes = async(id) => {
         const response  = await fetch(`${likesRoute}/${id}`,{
           method: 'get',
           headers: {
@@ -91,6 +91,9 @@ export default function Post() {
         if(json.success){
           setlikes(json.likes);
           setdolike(json.isLiked);
+        }
+        else{
+          noOfLikes()
         }
       }
 
