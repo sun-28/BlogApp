@@ -3,8 +3,10 @@ import { Link, useNavigate } from 'react-router-dom'
 import { LoginRoute } from '../utils/ApiRoutes';
 import { toast, ToastContainer } from 'react-toastify';
 import "react-toastify/dist/ReactToastify.css";
-
+import loader from '../assets/loader.gif'
+import { set } from 'date-fns';
 export default function Login() {
+    const [load, setload] = useState(false)
     let navigate = useNavigate();
     const toastoptions = {
         position: "top-right",
@@ -18,6 +20,7 @@ export default function Login() {
         setcred({ ...cred, [e.target.name]: e.target.value });
     }
     const handlesubmit = async (e) => {
+        setload(true);
         e.preventDefault();
         const response = await fetch(LoginRoute,
             {
@@ -31,13 +34,18 @@ export default function Login() {
         const json = await response.json();
         if (json.success) {
             localStorage.setItem('token', json.authtoken)
+            setload(false)
             navigate('/');
         }
         else {
+            setload(false)
             toast.error(json.error, toastoptions)
         }
     }
     return (
+        load?<div className="container">
+                    <img className="loader" src={loader} alt="loader" />
+                </div>:
         <div className='formContainer'>
             <div className="lform form" onSubmit={handlesubmit}>
                 <div className='logo-wel'>

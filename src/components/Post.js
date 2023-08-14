@@ -59,6 +59,7 @@ export default function Post() {
       })
     });
     const json = await response.json();
+    setcomment("");
     if(json.success){
      getAllComments();     
     }
